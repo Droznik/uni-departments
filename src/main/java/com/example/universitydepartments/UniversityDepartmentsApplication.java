@@ -15,8 +15,7 @@ import static com.example.universitydepartments.services.MessageService.showInpu
 @SpringBootApplication
 @EntityScan
 public class UniversityDepartmentsApplication {
-    public static Scanner scanner = new Scanner(System.in);
-    public static MainService input = new MainService();
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         SpringApplication.run(UniversityDepartmentsApplication.class, args);
@@ -27,7 +26,7 @@ public class UniversityDepartmentsApplication {
 
     }
 
-    public static void continueLoop() {
+    private static void continueLoop() {
         System.out.println("Do you want to continue working with the application? Y/N");
         String choise = scanner.nextLine();
 
@@ -46,34 +45,34 @@ public class UniversityDepartmentsApplication {
         }
     }
 
-    public static void scan() {
+    private static void scan() {
         askUserForInput();
 
         String next = scanner.nextLine();
         switch (next) {
             case "1":
                 departmentMessage();
-                input.headOfDepartment(scanner.nextLine());
+                MainService.headOfDepartment(scanner.nextLine());
                 continueLoop();
                 break;
             case "2":
                 departmentMessage();
-                input.departmentStatistics(scanner.nextLine());
+                MainService.departmentStatistics(scanner.nextLine());
                 continueLoop();
                 break;
             case "3":
                 departmentMessage();
-                input.averageSalary(scanner.nextLine());
+                MainService.averageSalary(scanner.nextLine());
                 continueLoop();
                 break;
             case "4":
                 departmentMessage();
-                input.countOfEmployee(scanner.nextLine());
+                MainService.countOfEmployee(scanner.nextLine());
                 continueLoop();
                 break;
             case "5":
                 System.out.println("Search:");
-                input.globalSearch(scanner.nextLine());
+                MainService.globalSearch(scanner.nextLine());
                 continueLoop();
                 break;
             default:
